@@ -6,9 +6,9 @@ import About from './About';
 import Services from './Services';
 import Contact from './Contact';
 import FooterMain from './FooterMain';
-import BancaEnLinea from './pages/BancaLineaLogin'; // Importa tu nuevo componente para Banca en Línea
-import BancaLineaRegister from './pages/BancaLineaRegister';
-import BancaLineaDashboard from './pages/BancaLineaDashboard';
+import BancaEnLinea from './pages/dashboard/BancaLineaLogin'; // Importa tu nuevo componente para Banca en Línea
+import BancaLineaRegister from './pages/login/BancaLineaRegister';
+import BancaLineaDashboard from './pages/register/BancaLineaDashboard';
 
 function App() {
   return (
