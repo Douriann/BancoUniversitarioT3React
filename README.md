@@ -1,12 +1,69 @@
-# React + Vite
+# BancoUniversitarioT3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Banco Universitario** - Sitio Web Institucional y Banca en Línea  
 
-Currently, two official plugins are available:
+## 📌 Descripción del Proyecto  
+Proyecto desarrollado por un equipo de ingenieros de la **Universidad Centroccidental "Lisandro Alvarado" (UCLA)**. Su objetivo es crear una plataforma web integral para el **Banco Universitario**, una institución con 5 años de trayectoria apoyando a estudiantes universitarios en Venezuela con soluciones financieras accesibles.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La plataforma consta de dos componentes principales:  
 
-## Expanding the ESLint configuration
+1. **Sitio Web Institucional**  
+   - Estático, enfocado en la identidad del banco (misión, visión, objetivos, servicios y contacto).  
+   - *Responsive* y con branding oficial (colores, logo y tipografía).  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Banca en Línea**  
+   - Aplicación web para usuarios registrados.  
+   - Funcionalidades: consulta de saldo, transferencias, contactos frecuentes y cambio de contraseña.  
+   - Conexión a una **API REST** proporcionada por el banco.  
+
+---
+
+## 🎨 Branding  
+### Colores Oficiales  
+- **Primario:** `#085f63` (RGB: 8, 95, 99)  
+- **Secundario/Acento:** `#49beb7` (RGB: 73, 190, 183)  
+- **Fondo:** `#FFFFFF` (RGB: 255, 255, 255)  
+
+### Tipografía  
+- **Principal:** *Montserrat Alternates Regular*  
+
+---
+
+## 📋 Requisitos del Sitio Web Institucional  
+### Contenido  
+- Página de inicio con información general.  
+- Sección "Misión, Visión y Objetivos".  
+- Lista de servicios:  
+  - Transferencias sin costo.  
+  - Depósitos/retiros.  
+  - Pago de matrículas.  
+  - Cobro de becas.  
+- Información de contacto (dirección, teléfono, correo, redes sociales).  
+- Enlace a la banca en línea.  
+
+### Diseño  
+- ✅ *Responsive* (móviles, tabletas, computadoras).  
+- ✅ Branding oficial (colores, logo, tipografía).  
+- 🔴 Estático (sin consumo de API en esta fase).  
+
+---
+
+## 💻 Tecnologías Utilizadas  
+### Frontend  
+- **HTML**: Estructura del sitio.  
+- **CSS**: Estilos y diseño responsive.  
+- **JavaScript**: Base para futuras interacciones (actualmente sin uso).  
+
+### Control de Versiones  
+- **Git**: Gestión local de versiones.  
+- **GitHub**: Repositorio remoto y colaboración.  
+
+### Herramientas  
+- **Visual Studio Code**: Entorno de desarrollo principal.  
+
+---
+
+## 🔗 Enlaces Relacionados  
+- [Facebook](https://www.facebook.com/bancouniversitariove)  
+- [Instagram](https://www.instagram.com/bancouniversitariove)  
+- [Twitter/X](https://twitter.com/bancouniversitariove)  
