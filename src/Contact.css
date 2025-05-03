@@ -1,0 +1,16 @@
+/* -------- SECCIÓN DE CONTACTO ------------ */
+.contact{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #032D2F;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-title{
+    color: #ffffff;
+}
+/* -------- FIN DE LA SECCIÓN DE CONTACTO ------------ */

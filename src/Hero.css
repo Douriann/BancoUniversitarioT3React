@@ -1,0 +1,70 @@
+/* -------- HERO ------------ */
+.hero {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.61)), url('assets/img/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    container-type: inline-size;
+    container-name: hero;
+}
+/* Contenedor principal de la sección hero */
+.hero-container {
+    background-color: rgba(8, 95, 99, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    gap: 1rem;
+}
+/* Oculta el h1 por defecto */
+h1{
+    display: none;
+}
+/* Estilo del logo en la sección hero */
+.hero__logo-container{
+    flex-shrink: 0;
+}
+
+.hero__logo{
+    width: 100%;
+    height: auto;
+}
+
+.hero-text{
+    padding: 15px;
+}
+
+.hero-text__description {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Media queries para la sección hero en desktop */
+
+@container hero (min-width: 700px) {
+    .hero {
+        height: 100vh;
+    }
+
+    .hero-container {
+
+        padding: 2rem;
+        margin: 0;
+        gap: 5px;
+    }
+
+    .hero-text__description {
+        font-size: 1.5rem;
+    }
+
+    .hero-text__bottomdescription{
+        font-size: 1.2rem;
+    }
+}
+/* -------- FIN DEL HERO ------------ */

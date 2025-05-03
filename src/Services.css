@@ -1,0 +1,62 @@
+/* -------- SECCIÓN DE SERVICIOS ------------ */
+
+.services{
+    container-type: inline-size;
+    container-name: services;
+}
+/* Contenedor de las tarjetas de servicios */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.services-tittle{
+    text-align: center;
+}
+
+.services-card {
+    background-color: #085f63;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card h3 {
+    color: #085f63;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.services-card__tittle-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.services-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Media queries para la sección de servicios en desktop */
+@container services (min-width: 700px) {
+    .services-container {
+        flex-direction: row;
+    }
+
+    .services-card {
+        width: 30%;
+    }
+}
+/* -------- FIN DE SECCIÓN DE SERVICIOS ------------ */
