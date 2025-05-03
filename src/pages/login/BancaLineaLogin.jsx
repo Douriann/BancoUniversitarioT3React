@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/img/logo.png'; // Asegúrate de ajustar la ruta según la ubicación de tu imagen
+import logo from '../../assets/img/logo.png'; // Asegúrate de ajustar la ruta según la ubicación de tu imagen
 import { Link } from 'react-router-dom';
 
 function BancaLineaLogin() {

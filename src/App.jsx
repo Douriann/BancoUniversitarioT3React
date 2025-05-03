@@ -6,9 +6,9 @@ import About from './About';
 import Services from './Services';
 import Contact from './Contact';
 import FooterMain from './FooterMain';
-import BancaEnLinea from './pages/dashboard/BancaLineaLogin'; // Importa tu nuevo componente para Banca en Línea
-import BancaLineaRegister from './pages/login/BancaLineaRegister';
-import BancaLineaDashboard from './pages/register/BancaLineaDashboard';
+import BancaLineaLogin from './pages/login/BancaLineaLogin'; // Importa tu nuevo componente para Banca en Línea
+import BancaLineaRegister from './pages/register/BancaLineaRegister'; // Importa tu nuevo componente para el registro
+import BancaLineaDashboard from './pages/dashboard/BancaLineaDashBoard'; // Importa tu nuevo componente para el dashboard
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
         {/* Ruta para Banca en Línea */}
         <Route
          path="/bancalinea/login" 
-         element={<BancaEnLinea />} />
+         element={<BancaLineaLogin />} />
         <Route
          path="/bancalinea/register" 
          element={<BancaLineaRegister />} />
