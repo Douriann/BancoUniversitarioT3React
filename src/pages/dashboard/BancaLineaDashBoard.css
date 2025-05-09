@@ -1,0 +1,80 @@
+
+/* INICIO DEL CONTENEDOR DEL DASHBOARD */
+.container-mainclass{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    gap: 20px;
+}
+/* FIN DEL CONTENEDOR DEL DASHBOARD */
+
+/* SIDEBAR DEL DASHBOARD */
+.sidebar{
+    background-color: #085f63;
+    color: white;
+    width: 20%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-user-container{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-sidebar{
+    width: 100%;
+    color:white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.sidebar-nav-btn{
+    height: 50px;
+    border: 0;
+    border-top: 0.2rem;
+    border-color: #49beb7;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+.sidebar-nav-btn:last-child{
+    border-bottom: 0.2rem solid #49beb7;
+}
+
+
+/*FIN DEL SIDEBAR DEL DASHBOARD */
+
+/*INICIO DEL CONTENEDOR MAIN */
+.main-content{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.global-position-container{
+    color: white;
+    padding: 20px;
+    height: 50vh;
+    background-color: #085f63;
+    border-radius: 20px;
+}
+
+.h2-main{
+    color: white;
+}
+/*FIN DEL CONTENEDOR MAIN */

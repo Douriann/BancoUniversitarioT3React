@@ -1,0 +1,67 @@
+/* HEADER DEL DASHBOARD */
+
+.header-dashboard {
+    background-color: #d9d9d9;
+    color: black;
+    text-align: center;
+    width: 100%;
+    min-height: 90px;
+    max-height: 170px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 0;
+    border-bottom: 0.2rem;
+    border-color: #7d7b7b;
+    border-style: solid;
+    padding: 10px;
+}
+
+.header-img-container{
+    flex-shrink: 0;
+}
+
+.header-logo{
+    max-width: 300px;
+    max-height: 170px;
+    padding: 5px;
+}
+
+.header-left-elements{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-btn-container{
+    background-color: #085f63;
+    max-height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.btn-header{
+    width: 100px;
+    height: 45px;
+    color:white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.header-btn-img-logout{
+    width: 20px;
+    height: 20px;
+}
+/*FIN DEL HEADER DEL DASHBOARD */
