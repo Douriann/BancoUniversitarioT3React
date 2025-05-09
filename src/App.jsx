@@ -9,6 +9,8 @@ import FooterMain from './FooterMain';
 import BancaLineaLogin from './pages/login/BancaLineaLogin'; // Importa tu nuevo componente para Banca en Línea
 import BancaLineaRegister from './pages/register/BancaLineaRegister'; // Importa tu nuevo componente para el registro
 import BancaLineaDashboard from './pages/dashboard/BancaLineaDashBoard'; // Importa tu nuevo componente para el dashboard
+import BancaLineaHeader from './pages/dashboard/BancaLineaHeader'; // Importa tu nuevo componente para el header del dashboard
+import BancaLineaFooter from './pages/dashboard/BancaLineaFooter'; // Importa tu nuevo componente para el footer del dashboard
 
 function App() {
   return (
@@ -38,7 +40,14 @@ function App() {
          element={<BancaLineaRegister />} />
         <Route
          path="/bancalinea/dashboard" 
-         element={<BancaLineaDashboard />} />
+         element={
+          <>
+          <BancaLineaHeader />
+          <BancaLineaDashboard />
+          <BancaLineaFooter />
+          </>
+        } 
+        />
       </Routes>
     </Router>
   );
