@@ -1,10 +1,10 @@
 // src/components/BancolineaRegister.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
-import './BancolineaRegister.css';
+import './BancaLineaRegister.css';
 import { useNavigate } from 'react-router-dom';
 
-const BancolineaRegister = () => {
+const BancaLineaRegister = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -113,4 +113,4 @@ const BancolineaRegister = () => {
   );
 };
 
-export default BancolineaRegister;
+export default BancaLineaRegister;
