@@ -1,41 +1,31 @@
 import React from 'react';
-import logo from '../../assets/img/logo.png'; // Asegúrate de ajustar la ruta según la ubicación de tu imagen
+import './BancaLineaLogin.css';
+import logo from '../../assets/img/logo.png';
+import loginico from '../../assets/img/favicon.png';
 import { Link } from 'react-router-dom';
 
 function BancaLineaLogin() {
   return (
-    <div>
-      {/* Encabezado */}
-      <header>
-        <div>
-          <img src={logo} alt="Banco Universitario Logo" />
+    <div class="login-container">
+        <header class="login-header">
+            <img src={logo} alt="Banco Universitario" class="logo" />
+            <Link to="/" class="institutional-btn">Web Institucional</Link>
+        </header>
+
+        <div class="login-box">
+            <div class="login-title">      
+                <img src={loginico} alt="Login Icono" class="login-icon" />
+                <h2>LOGIN</h2>
+            </div>
+            <form>
+                <input type="text" placeholder="Usuario *" required />
+                <input type="password" placeholder="Contraseña *" required />
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="register-link">
+            Si eres nuevo cliente <a href="#">regístrate aquí</a>
+            </p>
         </div>
-        <nav>
-          <Link to="/">Volver al Inicio</Link>
-        </nav>
-      </header>
-
-      {/* Sección de Inicio de Sesión */}
-      <section>
-        <h1>Inicia Sesión</h1>
-        <form>
-          <label htmlFor="cedula">Cédula de identidad:</label>
-          <input type="text" id="cedula" name="cedula" required />
-
-          <label htmlFor="contrasena">Contraseña:</label>
-          <input type="password" id="contrasena" name="contrasena" required />
-
-          <button type="submit">Iniciar Sesión</button>
-        </form>
-        <p>
-          <Link to="/bancalinea/register" className="btn">¿No tienes cuenta? Regístrate aquí</Link>
-        </p>
-      </section>
-
-      {/* Pie de página */}
-      <footer>
-        <p>© 2025 Banco Universitario. Todos los derechos reservados.</p>
-      </footer>
     </div>
   );
 }
