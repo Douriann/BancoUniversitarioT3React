@@ -52,14 +52,14 @@ const handleSubmit = async (event) => {
     }
 };
   return (
-    <div class="login-container">
-        <header class="login-header">
-            <img src={logo} alt="Banco Universitario" class="logo" />
-            <Link to="/" class="institutional-btn">Web Institucional</Link>
+    <div className="login-container">
+        <header className="login-header">
+            <img src={logo} alt="Banco Universitario" className="logo" />
+            <Link to="/" className="institutional-btn">Web Institucional</Link>
         </header>
 
         <div class="login-box">
-            <div class="login-title">      
+            <div className="login-title">      
                 <img src={loginico} alt="Login Icono" class="login-icon" />
                 <h2>LOGIN</h2>
             </div>
@@ -68,7 +68,7 @@ const handleSubmit = async (event) => {
                 <input type="password" name="password" placeholder="Contraseña *" value={form.password} onChange={handleChange} required />
                 <button type="submit">Entrar</button>
             </form>
-            <p class="register-link">
+            <p className="register-link">
             Si eres nuevo cliente <a href="#">regístrate aquí</a>
             </p>
         </div>

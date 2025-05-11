@@ -37,7 +37,40 @@ const handleSubmit = async (event) => {
         alert("Por favor, completa todos los campos.");
         return;
     }
+    if (form.password !== form.repite_password) {
+    alert("Las contraseñas no coinciden.");
+    return;
+    }
+    // Validar email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+        alert("Correo electrónico no válido.");
+        return;
+    }
+
+    // Validar número de teléfono (solo dígitos, al menos 10)
+    const phoneRegex = /^\d{10,15}$/;
+    if (!phoneRegex.test(form.phone)) {
+        alert("Número de teléfono no válido. Debe tener entre 10 y 15 dígitos.");
+        return;
+    }
+
+    // Validar cédula (solo dígitos, mínimo 6)
+    const idRegex = /^\d{6,12}$/;
+    if (!idRegex.test(form.id)) {
+        alert("Cédula no válida. Debe tener entre 6 y 12 dígitos.");
+        return;
+    }
     
+    // Validar contraseña segura
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(form.password)) {
+        alert("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.");
+        return;
+    }
+
+
+
     try {
         const response = await apiRequest("POST", "/v1/public/client/user/register", form);
         console.log("Respuesta del servidor:", response);
@@ -46,7 +79,7 @@ const handleSubmit = async (event) => {
             // guardando el JWT en el localStorage
             setJWT(response.data.jwt);
             alert("Registro exitoso");
-            navigate("/bancalinea/dashboard");
+            navigate("/bancalinea/login");
         } else {
             alert(response.message || "Error al registrar");
         }
@@ -57,30 +90,30 @@ const handleSubmit = async (event) => {
     }
 };
   return (
-    <div class="register-container">
-        <header class="register-header">
-            <img src={logo} alt="Banco Universitario" class="logo" />
-            <Link to="/" class="institutional-btn">Web Institucional</Link>
+    <div className="register-container">
+        <header className="register-header">
+            <img src={logo} alt="Banco Universitario" className="logo" />
+            <Link to="/" className="institutional-btn">Web Institucional</Link>
         </header>
 
-        <div class="register-box">
-            <div class="register-title">      
-                <img src={registerico} alt="Register Icono" class="register-icon" />
+        <div className="register-box">
+            <div className="register-title">      
+                <img src={registerico} alt="Register Icono" className="register-icon" />
                 <h2>REGISTER</h2>
             </div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="name" placeholder="Nombre *" value={form.name} onChange={handleChange} required />
-                <input type="text" name="lastname" placeholder="Apellido *" value={form.lastname} onChange={handleChange} required />
-                <input type="text" name="id" placeholder="Cedula *" value={form.id} onChange={handleChange} required />
-                <input type="date" name="birthdate" placeholder="Fecha de Nacimiento *" value={form.birthdate} onChange={handleChange} required />
-                <input type="text" name="phone" placeholder="Numero de Telefono*" value={form.phone} onChange={handleChange} required /> 
+                <input type="text" name="first_name" placeholder="Nombre *" value={form.name} onChange={handleChange} required />
+                <input type="text" name="last_name" placeholder="Apellido *" value={form.lastname} onChange={handleChange} required />
+                <input type="text" name="document_number" placeholder="Cedula *" value={form.id} onChange={handleChange} required />
+                <input type="date" name="birth_date" placeholder="Fecha de Nacimiento *" value={form.birthdate} onChange={handleChange} required />
+                <input type="text" name="phone_number" placeholder="Numero de Telefono*" value={form.phone} onChange={handleChange} required /> 
                 <input type="email" name="email" placeholder="Correo *" value={form.email} onChange={handleChange} required />                                                                             
                 <input type="password" name="password" placeholder="Contraseña *" value={form.password} onChange={handleChange} required />
                 <input type="password" name="repite_password" placeholder="Repita la Contraseña *" value={form.repite_password} onChange={handleChange} required />                
                 <button type="submit">Registrarse</button>
             </form>
-            <p class="register-link">
-            ¿Ya tienes cuenta? <a href="#">inicia sesión aquí</a>
+            <p className="register-link">
+            ¿Ya tienes cuenta? <Link to="/login">inicia sesión aquí</Link>
             </p>
         </div>
     </div>

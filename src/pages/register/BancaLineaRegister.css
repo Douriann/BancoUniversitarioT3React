@@ -1,5 +1,6 @@
   .register-container {
     height: 100vh;
+    overflow-y: auto;
     width: 100%;
     position: relative;
     background-image: url("../../assets/img/loginbackground.jpg");
