@@ -37,18 +37,17 @@ const handleSubmit = async (event) => {
         const response = await apiRequest("POST", "/v1/public/client/user/login", form);
         console.log("Respuesta del servidor:", response);
 
-        if (response.data.jwt) {
+        try {
             // guardando el JWT en el localStorage
             setJWT(response.data.jwt);
             alert("Inicio de sesión exitoso");
             navigate("/bancalinea/dashboard");
-        } else {
+        } catch {
             alert(response.message || "Error al iniciar sesión");
         }
     } catch (error) {
-        console.error("Error en el login:", error);
-        const response = await apiRequest("POST", "/v1/public/client/user/login", form);
-        alert(response.message || "Error al conectar con el servidor");
+        console.error("Error al conectar con el servidor:", error);
+        alert("Error al conectar con el servidor");
     }
 };
   return (
