@@ -6,6 +6,9 @@
     background-image: url("../../assets/img/loginbackground.jpg");
     background-size: cover;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   
   .register-header {
@@ -34,16 +37,13 @@
   }
   
   .register-box {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: #085f63;
     padding: 40px 30px;
     border-radius: 10px;
-    width: 400px;
+    width: 50%;
     text-align: center;
     color: #ffffff;
+    align-self: center;
   }
   .register-title{
     display: flex;
@@ -65,7 +65,11 @@
   
   .register-box form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
   }
   
   .register-box input {
@@ -101,5 +105,9 @@
     color: #9ae3e3;
     text-decoration: none;
     font-weight: bold;
+  }
+
+  .form-txtbox{
+    width: 40%;
   }
   

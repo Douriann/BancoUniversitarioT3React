@@ -102,14 +102,14 @@ const handleSubmit = async (event) => {
                 <h2>REGISTER</h2>
             </div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="first_name" placeholder="Nombre *" value={form.name} onChange={handleChange} required />
-                <input type="text" name="last_name" placeholder="Apellido *" value={form.lastname} onChange={handleChange} required />
-                <input type="text" name="document_number" placeholder="Cedula *" value={form.id} onChange={handleChange} required />
-                <input type="date" name="birth_date" placeholder="Fecha de Nacimiento *" value={form.birthdate} onChange={handleChange} required />
-                <input type="text" name="phone_number" placeholder="Numero de Telefono*" value={form.phone} onChange={handleChange} required /> 
-                <input type="email" name="email" placeholder="Correo *" value={form.email} onChange={handleChange} required />                                                                             
-                <input type="password" name="password" placeholder="Contraseña *" value={form.password} onChange={handleChange} required />
-                <input type="password" name="repite_password" placeholder="Repita la Contraseña *" value={form.repite_password} onChange={handleChange} required />                
+                <input type="text" name="first_name" placeholder="Nombre *" value={form.name} onChange={handleChange} required class="form-txtbox"/>
+                <input type="text" name="last_name" placeholder="Apellido *" value={form.lastname} onChange={handleChange} required class="form-txtbox"/>
+                <input type="text" name="document_number" placeholder="Cedula *" value={form.id} onChange={handleChange} required class="form-txtbox"/>
+                <input type="date" name="birth_date" placeholder="Fecha de Nacimiento *" value={form.birthdate} onChange={handleChange} required class="form-txtbox"/>
+                <input type="text" name="phone_number" placeholder="Numero de Telefono*" value={form.phone} onChange={handleChange} required class="form-txtbox"/> 
+                <input type="email" name="email" placeholder="Correo *" value={form.email} onChange={handleChange} required class="form-txtbox"/>                                                                             
+                <input type="password" name="password" placeholder="Contraseña *" value={form.password} onChange={handleChange} required class="form-txtbox"/>
+                <input type="password" name="repite_password" placeholder="Repita la Contraseña *" value={form.repite_password} onChange={handleChange} required class="form-txtbox"/>                
                 <button type="submit">Registrarse</button>
             </form>
             <p className="register-link">
