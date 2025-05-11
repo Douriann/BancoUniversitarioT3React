@@ -1,10 +1,56 @@
 import React from 'react';
+import { useState } from "react";
+import { apiRequest } from "../../api/apirequest";
+import { setJWT } from "../../utils/localStorage";
 import './BancaLineaLogin.css';
 import logo from '../../assets/img/logo.png';
 import loginico from '../../assets/img/favicon.png';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
+
 
 function BancaLineaLogin() {
+    const navigate = useNavigate();
+
+const [form, setForm] = useState({
+    email: "",
+    password: ""
+});
+
+const handleChange = (event) => {
+    setForm({
+        ...form,
+        [event.target.name]: event.target.value
+    });
+};
+
+const handleSubmit = async (event) => {
+    // Evitar el comportamiento por defecto del formulario
+    // para que no se recargue la página al enviar el formulario
+    event.preventDefault();
+
+    if (!form.email || !form.password) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
+    try {
+        const response = await apiRequest("POST", "/v1/public/client/user/login", form);
+        console.log("Respuesta del servidor:", response);
+
+        if (response.data.jwt) {
+            // guardando el JWT en el localStorage
+            setJWT(response.data.jwt);
+            alert("Inicio de sesión exitoso");
+            navigate("/bancalinea/dashboard");
+        } else {
+            alert(response.message || "Error al iniciar sesión");
+        }
+    } catch (error) {
+        console.error("Error en el login:", error);
+        const response = await apiRequest("POST", "/v1/public/client/user/login", form);
+        alert(response.message || "Error al conectar con el servidor");
+    }
+};
   return (
     <div class="login-container">
         <header class="login-header">
@@ -17,9 +63,9 @@ function BancaLineaLogin() {
                 <img src={loginico} alt="Login Icono" class="login-icon" />
                 <h2>LOGIN</h2>
             </div>
-            <form>
-                <input type="text" placeholder="Usuario *" required />
-                <input type="password" placeholder="Contraseña *" required />
+            <form onSubmit={handleSubmit}>
+                <input type="text" name="email" placeholder="Correo *" value={form.username} onChange={handleChange} required />
+                <input type="password" name="password" placeholder="Contraseña *" value={form.password} onChange={handleChange} required />
                 <button type="submit">Entrar</button>
             </form>
             <p class="register-link">
