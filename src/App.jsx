@@ -11,6 +11,7 @@ import BancaLineaRegister from './pages/register/BancaLineaRegister'; // Importa
 import BancaLineaDashboard from './pages/dashboard/BancaLineaDashBoard'; // Importa tu nuevo componente para el dashboard
 import BancaLineaHeader from './pages/dashboard/BancaLineaHeader'; // Importa tu nuevo componente para el header del dashboard
 import BancaLineaFooter from './pages/dashboard/BancaLineaFooter'; // Importa tu nuevo componente para el footer del dashboard
+import Ping from './ApiPing';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         <Route
          path="/bancalinea/login" 
          element={<BancaLineaLogin />} />
+        <Route
+         path="/bancalinea/ping" 
+         element={<Ping />} />
         <Route
          path="/bancalinea/register" 
          element={<BancaLineaRegister />} />
