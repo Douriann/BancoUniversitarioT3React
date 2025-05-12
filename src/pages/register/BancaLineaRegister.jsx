@@ -33,7 +33,7 @@ const handleSubmit = async (event) => {
     // para que no se recargue la página al enviar el formulario
     event.preventDefault();
 
-    if (!form.name || !form.lastname || !form.id || !form.birthdate || !form.phone || !form.email || !form.password || !form.repite_password) {
+    /*if (!form.name || !form.lastname || !form.id || !form.birthdate || !form.phone || !form.email || !form.password || !form.repite_password) {
         alert("Por favor, completa todos los campos.");
         return;
     }
@@ -67,26 +67,22 @@ const handleSubmit = async (event) => {
     if (!passwordRegex.test(form.password)) {
         alert("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.");
         return;
-    }
-
+    }*/
 
 
     try {
         const response = await apiRequest("POST", "/v1/public/client/user/register", form);
         console.log("Respuesta del servidor:", response);
 
-        if (response.data.jwt) {
-            // guardando el JWT en el localStorage
-            setJWT(response.data.jwt);
+        try {
             alert("Registro exitoso");
-            navigate("/bancalinea/login");
-        } else {
+            //navigate("/bancalinea/login");
+        } catch {
             alert(response.message || "Error al registrar");
         }
     } catch (error) {
-        console.error("Error en el register:", error);
-        const response = await apiRequest("POST", "/v1/public/client/user/register", form);
-        alert(response.message || "Error al conectar con el servidor");
+        console.error("Error al conectar con el servidor:", error);
+        alert("Error al conectar con el servidor");
     }
 };
   return (
