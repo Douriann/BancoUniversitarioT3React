@@ -26,6 +26,8 @@ function BancaLineaRegister() {
         ...form,
         [event.target.name]: event.target.value
     });
+    const valor = event.target.value;
+    console.log(valor);
 };
 
 const handleSubmit = async (event) => {
@@ -71,14 +73,22 @@ const handleSubmit = async (event) => {
 
 
     try {
-        const response = await apiRequest("POST", "/v1/public/client/user/register", form);
+        const formattedDate = new Date(form.birth_date).toISOString()
+        const formData = {
+            ...form,
+            birth_date: formattedDate,
+        };
+        const response = await apiRequest("POST", "/v1/public/client/user/register", formData);
         console.log("Respuesta del servidor:", response);
+        console.log("Status:", response.errors.length);
 
-        try {
-            alert("Registro exitoso");
-            //navigate("/bancalinea/login");
-        } catch {
-            alert(response.message || "Error al registrar");
+        if (response.errors.length == 0) {
+            alert(response.message || "Registro exitoso");
+            navigate("/BancaLinea/login");
+        }
+        else {
+            alert(response.message || "Error en el registro");
+            return;
         }
     } catch (error) {
         console.error("Error al conectar con el servidor:", error);
