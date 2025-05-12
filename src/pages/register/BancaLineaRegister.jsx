@@ -11,11 +11,11 @@ function BancaLineaRegister() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-      name: "",
-      lastname:"",
-      id: "",
-      birthdate:"",
-      phone:"",
+      first_name: "",
+      last_name:"",
+      document_number: "",
+      birth_date:"",
+      phone_number:"",
       email: "",
       password: "",
       repite_password:""
