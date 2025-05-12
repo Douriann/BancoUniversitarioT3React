@@ -68,7 +68,7 @@ const handleSubmit = async (event) => {
                 <button type="submit">Entrar</button>
             </form>
             <p className="register-link">
-            Si eres nuevo cliente <a href="#">regístrate aquí</a>
+            Si eres nuevo cliente <Link to="/BancaLinea/Register">regístrate aquí</Link>
             </p>
         </div>
     </div>
