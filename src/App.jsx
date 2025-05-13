@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route , Navigate} from 'react-router-dom';
 import Header from './Header';
 import Hero from './Hero';
 import About from './About';
@@ -12,6 +12,9 @@ import BancaLineaDashboard from './pages/dashboard/BancaLineaDashBoard'; // Impo
 import BancaLineaHeader from './pages/dashboard/BancaLineaHeader'; // Importa tu nuevo componente para el header del dashboard
 import BancaLineaFooter from './pages/dashboard/BancaLineaFooter'; // Importa tu nuevo componente para el footer del dashboard
 import Ping from './ApiPing';
+import { getJWT } from "./utils/localStorage";
+import PrivateRoute from './utils/PrivateRoute';
+
 
 function App() {
   return (
@@ -44,14 +47,14 @@ function App() {
          element={<BancaLineaRegister />} />
         <Route
          path="/bancalinea/dashboard" 
+         element={<PrivateRoute 
          element={
-          <>
-          <BancaLineaHeader />
-          <BancaLineaDashboard />
-          <BancaLineaFooter />
-          </>
-        } 
-        />
+         <>
+         <BancaLineaHeader />
+         <BancaLineaDashboard />
+         <BancaLineaFooter />
+         </>} 
+         />}/>
       </Routes>
     </Router>
   );

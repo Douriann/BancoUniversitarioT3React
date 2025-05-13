@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './BancaLineaHeader.css';
 import logo from '../../assets/img/logo.png';
 import logoutimg from '../../assets/img/logout.png';
-import { getJWT } from "../../utils/localStorage";
+import { getJWT , removeJWT} from "../../utils/localStorage";
 import { Link , useNavigate} from 'react-router-dom';
 import { apiRequest } from "../../api/apirequest";
 
@@ -25,6 +25,12 @@ function BancaLineaHeader() {
         }
         findUserName();
     }, []);
+
+    const handleLogout = () => {
+        removeJWT();
+        alert("Sesión cerrada");
+        navigate("/bancalinea/login");
+    }
   return (
     <header class="header-dashboard">
         <div class="header-left-elements">
@@ -34,10 +40,10 @@ function BancaLineaHeader() {
             <h2>Bienvenido(a) {userName}</h2>
         </div>
         <div class="header-btn-container">
-            <Link to="/bancalinea/login" class="btn-header">
+            <a onClick={handleLogout} class="btn-header">
                 Salir
                 <img src={logoutimg} alt="Usuario" class="header-btn-img-logout"/>
-            </Link>         
+            </a>         
         </div>
     </header>
   );
