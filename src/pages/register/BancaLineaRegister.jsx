@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import { apiRequest } from "../../api/apirequest";
-import { setJWT } from "../../utils/localStorage";
+//import { setJWT } from "../../utils/localStorage";
 import './BancaLineaRegister.css';
 import logo from '../../assets/img/logo.png';
 import registerico from '../../assets/img/favicon.png';

@@ -12,7 +12,7 @@ import BancaLineaDashboard from './pages/dashboard/BancaLineaDashBoard'; // Impo
 import BancaLineaHeader from './pages/dashboard/BancaLineaHeader'; // Importa tu nuevo componente para el header del dashboard
 import BancaLineaFooter from './pages/dashboard/BancaLineaFooter'; // Importa tu nuevo componente para el footer del dashboard
 import Ping from './ApiPing';
-import { getJWT } from "./utils/localStorage";
+//import { getJWT } from "./utils/localStorage";
 import PrivateRoute from './utils/PrivateRoute';
 
 
