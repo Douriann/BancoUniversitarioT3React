@@ -12,8 +12,7 @@ import BancaLineaDashboard from './pages/dashboard/BancaLineaDashBoard';
 import BancaLineaHeader from './pages/dashboard/BancaLineaHeader'; 
 import BancaLineaFooter from './pages/dashboard/BancaLineaFooter'; 
 import Ping from './ApiPing';
-import BancaLineaMovement from './pages/dashboard/BancaLineaMovement'; 
-import { getJWT } from "./utils/localStorage";
+//import { getJWT } from "./utils/localStorage";
 import PrivateRoute from './utils/PrivateRoute';
 
 
