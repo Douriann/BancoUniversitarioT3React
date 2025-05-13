@@ -50,7 +50,7 @@ const handleSubmit = async (event) => {
         alert("Error al conectar con el servidor");
     }
 };
-  return (
+return (
     <div className="login-container">
         <header className="login-header">
             <img src={logo} alt="Banco Universitario" className="logo" />
@@ -72,7 +72,7 @@ const handleSubmit = async (event) => {
             </p>
         </div>
     </div>
-  );
+);
 }
 
 export default BancaLineaLogin;
