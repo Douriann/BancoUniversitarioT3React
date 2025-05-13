@@ -40,7 +40,7 @@ function BancaLineaHeader() {
             <h2>Bienvenido(a) {userName}</h2>
         </div>
         <div class="header-btn-container">
-            <a onClick={handleLogout} class="btn-header">
+            <a onClick={handleLogout} href="#" class="btn-header">
                 Salir
                 <img src={logoutimg} alt="Usuario" class="header-btn-img-logout"/>
             </a>         
