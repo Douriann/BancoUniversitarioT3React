@@ -1,0 +1,14 @@
+/*FOOTER DEL DASHBOARD */
+.footer-dashboard {
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    background: #49beb7;
+    color: black;
+    border: 0;
+    border-top: 0.2rem;
+    border-color: #085f63;
+    border-style: solid;
+    font-weight: bold;
+}
+/*FIN DEL FOOTER DEL DASHBOARD */
