@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { apiRequest } from "../../api/apirequest";
 import { getJWT } from "../../utils/localStorage";
 import { Link , useNavigate} from 'react-router-dom';
+import BancaLineaSidebar from "./BancaLineaSidebar";
 import userimg from '../../assets/img/user.png';
 import homeimg from '../../assets/img/home.png';
 import transferimg from '../../assets/img/transfer.png';
 import contactimg from '../../assets/img/contact.png';
 import configimg from '../../assets/img/config.png';
 import moveimg from '../../assets/img/movement.png';
+import "./BancaLineaMovement.css";
 
 const BancaLineaMovement = () => {
     const [movimientos, setMovimientos] = useState([]);
@@ -43,27 +45,13 @@ const BancaLineaMovement = () => {
 
     return (
     <div class="container-mainclass">
-        <aside class="sidebar">
-            <div class="sidebar-user-container">
-                <div class="sidebar-user-img-container">
-                    <img src={userimg} alt="Usuario" class="sidebar-user-img"/>
-                </div>
-                <h3>Menú de usuario</h3>
-            </div>
-            <nav class="sidebar-nav">
-                <div class="sidebar-nav-btn"><a href="transferencias.html" class="btn-sidebar"><img src={homeimg}/> Posición Global</a></div>
-                <div class="sidebar-nav-btn"><a href="consultar-saldo.html" class="btn-sidebar"><img src={moveimg}/>Movimientos</a></div>
-                <div class="sidebar-nav-btn"><a href="movimientos.html" class="btn-sidebar"><img src={transferimg}/>Transferir</a></div>
-                <div class="sidebar-nav-btn"><a href="configuracion.html" class="btn-sidebar"><img src={contactimg}/>Contactos</a></div>
-                <div class="sidebar-nav-btn"><a href="configuracion.html" class="btn-sidebar"><img src={configimg}/>Gestión</a></div>
-            </nav>
-        </aside>
-        <main class="main-content">
+        <BancaLineaSidebar />
+        <main class="movement-main-content">
             <h2>Movimientos</h2>
-            <div class="global-position-container">
+            <div class="movements-position-container">
                 <div class="global-position-box">
                     <div class="movement-filter-container">
-                        <label for="filter">Filtrar por tipo de movimiento:</label>
+                        <label for="filter" class="label-option">Filtrar por tipo de movimiento:</label>
                         <select onChange={selectFilter} value={filtro} id="filter" class="movement-filter-select">
                             <option value="todo">Todos los movimientos</option>
                             <option value="credito">Solo Crédito</option>
@@ -78,6 +66,7 @@ const BancaLineaMovement = () => {
                                 <th>Descripción</th>
                                 <th>Monto</th>
                                 <th>Saldo</th>
+                                <th>Tipo</th>
                             </tr>
                         </thead>
                         <tbody>
