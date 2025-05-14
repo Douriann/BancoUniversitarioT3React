@@ -60,13 +60,31 @@ return (
         <div class="login-box">
             <div className="login-title">      
                 <img src={loginico} alt="Login Icono" class="login-icon" />
-                <h2>LOGIN</h2>
+                <h2>INICIAR SESIÓN</h2>
             </div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="email" placeholder="Correo *" value={form.username} onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Contraseña *" value={form.password} onChange={handleChange} required />
-                <button type="submit">Entrar</button>
-            </form>
+    <label htmlFor="email" style={{ marginBottom: "4px", color: "#fff", fontWeight: "500", display: "block" }}>Correo</label>
+    <input
+        type="text"
+        id="email"
+        name="email"
+        placeholder="EJ: micorreo@gmail.com"
+        value={form.email}
+        onChange={handleChange}
+        required
+    />
+    <label htmlFor="password" style={{ margin: "12px 0 4px 0", color: "#fff", fontWeight: "500", display: "block" }}>Contraseña</label>
+    <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Ingresa aquí tu contraseña"
+        value={form.password}
+        onChange={handleChange}
+        required
+    />
+    <button type="submit">Entrar</button>
+</form>
             <p className="register-link">
             Si eres nuevo cliente <Link to="/BancaLinea/Register">regístrate aquí</Link>
             </p>
