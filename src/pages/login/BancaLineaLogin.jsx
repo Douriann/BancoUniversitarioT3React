@@ -6,11 +6,14 @@ import './BancaLineaLogin.css';
 import logo from '../../assets/img/logo.png';
 import loginico from '../../assets/img/favicon.png';
 import { Link , useNavigate} from 'react-router-dom';
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function BancaLineaLogin() {
     const navigate = useNavigate();
 
+//OJO    
+const [showPassword, setShowPassword] = useState(false);
+    
 const [form, setForm] = useState({
     email: "",
     password: ""
@@ -74,15 +77,33 @@ return (
         required
     />
     <label htmlFor="password" style={{ margin: "12px 0 4px 0", color: "#fff", fontWeight: "500", display: "block" }}>Contraseña</label>
+<div style={{ position: "relative", width: "100%" }}>
     <input
-        type="password"
+        type={showPassword ? "text" : "password"}
         id="password"
         name="password"
         placeholder="Ingresa aquí tu contraseña"
         value={form.password}
         onChange={handleChange}
         required
+        style={{ paddingRight: "35px", width: "100%" }}
     />
+    <span
+        onClick={() => setShowPassword(!showPassword)}
+        style={{
+            position: "absolute",
+            right: "10px",
+            top: "40%",
+            transform: "translateY(-50%)",
+            cursor: "pointer",
+            color: "#333"
+        }}
+        tabIndex={0}
+        aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+    >
+        {showPassword ? <FaEyeSlash /> : <FaEye />}
+    </span>
+</div>
     <button type="submit">Entrar</button>
 </form>
             <p className="register-link">
