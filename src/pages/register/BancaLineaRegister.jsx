@@ -118,19 +118,43 @@ return (
         <div className="register-box">
             <div className="register-title">      
                 <img src={registerico} alt="Register Icono" className="register-icon" />
-                <h2>REGISTER</h2>
+                <h2>REGISTRO NUEVO USUARIO</h2>
             </div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="first_name" placeholder="Nombre *" value={form.first_name} onChange={handleChange} required className="form-txtbox"/>
-                <input type="text" name="last_name" placeholder="Apellido *" value={form.last_name} onChange={handleChange} required className="form-txtbox"/>
-                <input type="text" name="document_number" placeholder="Cedula *" value={form.document_number} onChange={handleChange} required className="form-txtbox"/>
-                <input type="date" name="birth_date" placeholder="Fecha de Nacimiento *" value={form.birth_date} onChange={handleChange} required className="form-txtbox"/>
-                <input type="text" name="phone_number" placeholder="Numero de Telefono*" value={form.phone_number} onChange={handleChange} required className="form-txtbox"/> 
-                <input type="email" name="email" placeholder="Correo *" value={form.email} onChange={handleChange} required className="form-txtbox"/>                                                                             
-                <input type="password" name="password" placeholder="Contraseña *" value={form.password} onChange={handleChange} required className="form-txtbox"/>
-                <input type="password" name="confirm_password" placeholder="Confirme la Contraseña *" value={form.confirm_password} onChange={handleChange} required className="form-txtbox"/>                
-                <button type="submit">Registrarse</button>
-            </form>
+    <div className="form-group">
+        <label htmlFor="first_name">Nombre *</label>
+        <input type="text" id="first_name" name="first_name" placeholder="EJ: CARLOS ANDRES" value={form.first_name} onChange={handleChange} required className="form-txtbox"/>
+    </div>
+    <div className="form-group">
+        <label htmlFor="last_name">Apellido *</label>
+        <input type="text" id="last_name" name="last_name" placeholder="EJ: GONZALES PEREZ" value={form.last_name} onChange={handleChange} required className="form-txtbox"/>
+    </div>
+    <div className="form-group">
+        <label htmlFor="document_number">Cédula *</label>
+        <input type="text" id="document_number" name="document_number" placeholder="EJ: 12345678" value={form.document_number} onChange={handleChange} required className="form-txtbox"/>
+    </div>
+    <div className="form-group">
+        <label htmlFor="birth_date">Fecha de Nacimiento *</label>
+        <input type="date" id="birth_date" name="birth_date" placeholder="Fecha de Nacimiento" value={form.birth_date} onChange={handleChange} required className="form-txtbox"/>
+    </div>
+    <div className="form-group">
+        <label htmlFor="phone_number">Número de Teléfono *</label>
+        <input type="text" id="phone_number" name="phone_number" placeholder="EJ: 04161234567" value={form.phone_number} onChange={handleChange} required className="form-txtbox"/> 
+    </div>
+    <div className="form-group">
+        <label htmlFor="email">Correo *</label>
+        <input type="email" id="email" name="email" placeholder="EJ: micorreo@gmail.com" value={form.email} onChange={handleChange} required className="form-txtbox"/>                                                                             
+    </div>
+    <div className="form-group">
+        <label htmlFor="password">Contraseña *</label>
+        <input type="password" id="password" name="password" placeholder="Ingrese aquí" value={form.password} onChange={handleChange} required className="form-txtbox"/>
+    </div>
+    <div className="form-group">
+        <label htmlFor="confirm_password">Confirme la Contraseña *</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme aquí" value={form.confirm_password} onChange={handleChange} required className="form-txtbox"/>
+    </div>
+    <button type="submit">Registrarse</button>
+</form>
             <p className="register-link">
             ¿Ya tienes cuenta? <Link to="/BancaLinea/login">inicia sesión aquí</Link>
             </p>
