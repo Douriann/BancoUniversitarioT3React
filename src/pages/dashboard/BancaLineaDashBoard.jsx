@@ -41,11 +41,11 @@ function BancaLineaDashboard() {
                 <div class="global-position-box">
                     <div class="global-position-accoutnumb">
                         <h2 class="h2-main">Número de cuenta</h2>
-                        <p>{accountState.accountNumber}</p>
+                        <p class="data-info">{accountState.accountNumber}</p>
                     </div>
                     <div class="global-position-balancecontainer">
                         <h2 class="h2-main">Saldo Total</h2>
-                        <p>{accountState.accoutBalance} Bs.</p>
+                        <p class="data-info">{accountState.accoutBalance} Bs.</p>
                     </div>
                 </div>
             </div>
