@@ -6,6 +6,7 @@ import './BancaLineaRegister.css';
 import logo from '../../assets/img/logo.png';
 import registerico from '../../assets/img/favicon.png';
 import { Link , useNavigate} from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function BancaLineaRegister() {
 const navigate = useNavigate();
@@ -21,6 +22,7 @@ const [form, setForm] = useState({
     confirm_password:""
 });
 
+
 const handleChange = (event) => {
     setForm({
         ...form,
@@ -29,6 +31,8 @@ const handleChange = (event) => {
     const valor = event.target.value;
     console.log(valor);
 };
+
+const [showPassword, setShowPassword] = useState(false);
 
 const handleSubmit = async (event) => {
     // Evitar el comportamiento por defecto del formulario
@@ -146,9 +150,36 @@ return (
         <input type="email" id="email" name="email" placeholder="EJ: micorreo@gmail.com" value={form.email} onChange={handleChange} required className="form-txtbox"/>                                                                             
     </div>
     <div className="form-group">
-        <label htmlFor="password">Contraseña *</label>
-        <input type="password" id="password" name="password" placeholder="Ingrese aquí" value={form.password} onChange={handleChange} required className="form-txtbox"/>
+    <label htmlFor="password">Contraseña *</label>
+    <div style={{ position: "relative" }}>
+        <input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            placeholder="Ingrese aquí"
+            value={form.password}
+            onChange={handleChange}
+            required
+            className="form-txtbox"
+            style={{ paddingRight: "35px" }}
+        />
+        <span
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+                position: "absolute",
+                right: "10px",
+                top: "56%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+                color: "#333"
+            }}
+            tabIndex={0}
+            aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+        >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+        </span>
     </div>
+</div>
     <div className="form-group">
         <label htmlFor="confirm_password">Confirme la Contraseña *</label>
         <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme aquí" value={form.confirm_password} onChange={handleChange} required className="form-txtbox"/>
