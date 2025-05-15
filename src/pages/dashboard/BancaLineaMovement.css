@@ -5,6 +5,11 @@
     align-items: center;
     justify-content: center;
     margin: auto;
+    max-height: 350px; /* Ajustar */
+    overflow-y: auto;
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
 }
 
 .movement-main-content{
