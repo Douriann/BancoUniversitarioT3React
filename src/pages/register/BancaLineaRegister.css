@@ -44,6 +44,7 @@
     text-align: center;
     color: #ffffff;
     align-self: center;
+    margin-bottom: 32px;
   }
   .register-title{
     display: flex;
@@ -142,4 +143,20 @@
     gap: 18px 24px;
     justify-content: center;
     align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .register-box {
+    width: 85%;
+    min-width: 0;
+    padding: 18px 6px 16px 6px;
+    box-sizing: border-box;
+  }
+  .form-group {
+    width: 80%;
+    min-width: 0;
+  }
+  .form-txtbox {
+    width: 50%;
+  }
 }

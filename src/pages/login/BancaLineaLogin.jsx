@@ -66,7 +66,7 @@ return (
                 <h2>INICIAR SESIÓN</h2>
             </div>
             <form onSubmit={handleSubmit}>
-    <label htmlFor="email" style={{ marginBottom: "4px", color: "#fff", fontWeight: "500", display: "block" }}>Correo</label>
+    <label htmlFor="email" style={{ marginBottom: "4px", color: "#fff", fontWeight: "500", display: "block" }}>Correo Electrónico</label>
     <input
         type="text"
         id="email"
