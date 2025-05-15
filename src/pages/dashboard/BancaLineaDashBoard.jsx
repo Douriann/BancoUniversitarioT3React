@@ -3,12 +3,18 @@ import { apiRequest } from "../../api/apirequest";
 import { getJWT } from "../../utils/localStorage";
 import './BancaLineaDashboard.css';
 import BancaLineaSidebar from "./BancaLineaSidebar";
+import { FaRegCopy } from "react-icons/fa";
 
 function BancaLineaDashboard() {
-    const [accountState, setAccountState] = useState({
-        accountNumber: "",
-        accoutBalance: 0
-    });
+const [accountState, setAccountState] = useState({
+    accountNumber: "",
+    accoutBalance: 0
+});
+
+const handleCopyAccount = () => {
+    navigator.clipboard.writeText(accountState.accountNumber);
+    alert("Número de cuenta copiado");
+};
 
         useEffect(() => {
             const findUserData = async () => {
@@ -40,9 +46,18 @@ function BancaLineaDashboard() {
             <div class="global-position-container">
                 <div class="global-position-box">
                     <div class="global-position-accoutnumb">
-                        <h2 class="h2-main">Número de cuenta</h2>
-                        <p>{accountState.accountNumber}</p>
-                    </div>
+                    <h2 class="h2-main">Número de cuenta</h2>
+                    <p style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    {accountState.accountNumber}
+                    <span
+                        style={{ cursor: "pointer" }}
+                        onClick={handleCopyAccount}
+                        title="Copiar número de cuenta"
+                    >
+                    <FaRegCopy />
+                    </span>
+                    </p>
+                </div>
                     <div class="global-position-balancecontainer">
                         <h2 class="h2-main">Saldo Total</h2>
                         <p>{accountState.accoutBalance} Bs.</p>
