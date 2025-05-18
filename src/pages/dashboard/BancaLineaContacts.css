@@ -1,0 +1,216 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #eaeaea;
+}
+
+.container-mainclass {
+    display: flex;
+    min-height: 100vh;
+    background: #eaeaea;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #085f63;
+    color: #fff;
+    width: 210px;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.sidebar-logo {
+    width: 120px;
+    margin-bottom: 24px;
+}
+
+.sidebar-user {
+    font-weight: bold;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.sidebar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    font-size: 1rem;
+    display: block;
+}
+
+.sidebar-link.active,
+.sidebar-link:hover {
+    background: #468c84;
+}
+
+/* Main Content */
+.contacts-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 32px 0 0 0;
+    align-items: center;
+}
+
+.contacts-main-content h2 {
+    color: #085f63;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    margin-top: 0;
+    text-align: left;
+    width: 90%;
+    max-width: 900px;
+}
+
+.contacts-position-container {
+    background-color: #085f63;
+    border-radius: 20px;
+    padding: 30px 24px 24px 24px;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.contacts-table-container {
+    width: 100%;
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.contacts-table {
+    width: 100%;
+    border-radius: 5px;
+    border-collapse: collapse;
+    color: #222;
+    min-width: 500px;
+}
+
+.contacts-table th, .contacts-table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 1rem;
+    border: 2px solid #085f63;
+}
+
+.contacts-table th {
+    background: #468c84;
+    color: #fff;
+    font-weight: bold;
+}
+
+.contacts-table tr:nth-child(even) td {
+    background: #e0f7fa;
+}
+
+.contacts-table tr:nth-child(odd) td {
+    background: #f5f5f5;
+}
+
+/* Botones de acciones */
+.contacts-actions {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 18px;
+}
+
+.contacts-btn {
+    padding: 14px 38px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: #4ecdc4;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: background 0.2s;
+}
+
+.contacts-btn:hover {
+    background: #38bdb2;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contacts-position-container {
+        padding: 16px 4px 12px 4px;
+        max-width: 100%;
+    }
+    .contacts-main-content h2 {
+        width: 98%;
+    }
+}
+
+@media (max-width: 700px) {
+    .container-mainclass {
+        flex-direction: column;
+    }
+    .sidebar {
+        flex-direction: row;
+        width: 100%;
+        min-width: 0;
+        padding: 8px 0;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+    }
+    .sidebar-logo {
+        width: 80px;
+        margin-bottom: 0;
+    }
+    .sidebar-user {
+        margin-bottom: 0;
+        font-size: 0.95rem;
+    }
+    .sidebar-nav {
+        flex-direction: row;
+        gap: 4px;
+    }
+    .sidebar-link {
+        font-size: 0.95rem;
+        padding: 6px 10px;
+    }
+    .contacts-main-content h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .contacts-table th, .contacts-table td {
+        padding: 7px 4px;
+        font-size: 0.9rem;
+    }
+    .contacts-btn {
+        padding: 8px 10px;
+        font-size: 0.95rem;
+    }
+}
