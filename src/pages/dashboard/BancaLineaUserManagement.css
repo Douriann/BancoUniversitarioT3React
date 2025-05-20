@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 
 .userManagement-main-content{
     display: flex;
@@ -15,10 +19,10 @@
     background-color: #085f63;
     border-radius: 20px;
     align-self: center;
-    align-items:first baseline;
+    align-items:baseline;
     display: flex;
-    gap: 20px;
-    flex-direction: column;
+    gap: 70px;
+    flex-direction: row;
 }
 
 .userManagement-position-container form{
@@ -42,7 +46,7 @@
 .buttons {
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    gap: 84px;
 }
 
 .modify{
@@ -71,4 +75,25 @@
     color: white;
     font-size: 2rem;
     font-weight: bold;
+}
+
+.error-box {
+    width: 40%;
+    height: auto;
+    background-color:#468c84;
+    border-radius: 20px;
+}
+
+.error-message {
+    text-align: justify;
+    color: #000000;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    min-height: 1.2em; /* Reserva espacio */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
 }
