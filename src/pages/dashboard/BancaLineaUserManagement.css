@@ -9,6 +9,7 @@
     color: #000000;
     font-size: 1.2rem;
     width: 70%;
+    margin: 20px;
 }
 
 .userManagement-position-container{
@@ -32,6 +33,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 10px;
+    margin: 20px;
 }
 
 .userManagement-position-container input{

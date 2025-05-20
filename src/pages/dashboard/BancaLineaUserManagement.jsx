@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { apiRequest } from "../../api/apirequest";
+import { getJWT } from "../../utils/localStorage";
 import BancaLineaSidebar from "./BancaLineaSidebar";
 import "./BancaLineaUserManagement.css";
 
@@ -6,14 +9,23 @@ const UserManagement = () => {
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [repeatNewPassword, setRepeatNewPassword] = useState("");
-    const [error, setError] = useState("") 
+    const [error, setError] = useState("");
+
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        const token = getJWT();
+        if(!token){
+            navigate("/bancalinea/login");
+        }
+    }, []);
 
     const passwordSecure = (password) => {
         const securePasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
         return securePasswordRegex.test(password);
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
     event.preventDefault();
 
     //Bloque de validaciones
@@ -30,14 +42,30 @@ const UserManagement = () => {
         return;
     }
 
-    //Lógica para enviar los datos al servidor
     setError("");
-    alert("Contraseña modificada exitosamente.");
 
-    //Limpiar campos
-    setCurrentPassword("");
-    setNewPassword("");
-    setRepeatNewPassword("");
+    //Lógica para enviar los datos al servidor
+        try {
+        const response = await apiRequest(
+            'POST',
+            '/v1/client/user/password',
+            {
+                currentPassword: currentPassword,
+                newPassword: newPassword,
+            }
+        );
+        if (response.success) {
+            alert("Contraseña modificada exitosamente.");
+            setCurrentPassword("");
+            setNewPassword("");
+            setRepeatNewPassword("");
+        } else {
+            setError(response.message || "No se pudo cambiar la contraseña.");
+        }
+    } catch (error) {
+        console.error(error);
+        setError("Error al cambiar la contraseña. Intente más tarde.");
+    }
     };
 
     const handleCancel = () => {
