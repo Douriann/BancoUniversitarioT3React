@@ -37,7 +37,7 @@ const handleCopyAccount = () => {
             findUserData();
         }, []);
 
-  return (
+return (
     <div class="container-mainclass">
         <BancaLineaSidebar />
         <main class="main-content">
@@ -66,7 +66,7 @@ const handleCopyAccount = () => {
             </div>
         </main>
     </div>
-  );
+);
 }
 
 export default BancaLineaDashboard;

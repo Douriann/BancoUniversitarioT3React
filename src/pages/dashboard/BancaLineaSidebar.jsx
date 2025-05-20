@@ -22,7 +22,7 @@ const BancaLineaSidebar = () => {
                     <div class="sidebar-nav-btn"><Link to="/bancalinea/movements" class="btn-sidebar"><img src={moveimg}/>Movimientos</Link></div>
                     <div class="sidebar-nav-btn"><Link to="/bancalinea/dashboard" class="btn-sidebar"><img src={transferimg}/>Transferir</Link></div>
                     <div class="sidebar-nav-btn"><Link to="/bancalinea/dashboard" class="btn-sidebar"><img src={contactimg}/>Contactos</Link></div>
-                    <div class="sidebar-nav-btn"><Link to="/bancalinea/dashboard" class="btn-sidebar"><img src={configimg}/>Gestión</Link></div>
+                    <div class="sidebar-nav-btn"><Link to="/bancalinea/usermanagement" class="btn-sidebar"><img src={configimg}/>Gestión</Link></div>
                 </nav>
             </aside>
     );
