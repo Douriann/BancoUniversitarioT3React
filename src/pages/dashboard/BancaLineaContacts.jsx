@@ -5,6 +5,7 @@ import "./BancaLineaContacts.css";
 
 const BancaLineaContacts = () => {
     const [contactos, setContactos] = useState([]);
+    const [contactoSeleccionado, setContactoSeleccionado] = useState(null);
 
     useEffect(() => {
         const fetchContactos = async () => {
@@ -30,21 +31,44 @@ const BancaLineaContacts = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {contactos.map((contacto, idx) => (
-                                    <tr key={idx}>
-                                        <td>{contacto.cuenta}</td>
-                                        <td>{contacto.alias}</td>
-                                        <td>{contacto.descripcion}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
+                            {contactos.map((contacto, idx) => (
+                                <tr
+                                 key={contacto.id || idx}
+                                 onClick={() => setContactoSeleccionado(contacto)}
+                                className={contactoSeleccionado && contactoSeleccionado.id === contacto.id ? "selected-row" : ""}
+                                style={{ cursor: "pointer" }}
+                                >
+                                <td>{contacto.cuenta}</td>
+                                <td>{contacto.alias}</td>
+                                <td>{contacto.descripcion}</td>
+        </tr>
+    ))}
+</tbody>
                         </table>
                     </div>
                     <div className="contacts-actions">
-                        <button className="contacts-btn">Agregar</button>
-                        <button className="contacts-btn">Modificar</button>
-                        <button className="contacts-btn">Eliminar</button>
-                    </div>
+    <button className="contacts-btn">Agregar</button>
+    <button
+        className="contacts-btn"
+        disabled={!contactoSeleccionado}
+        // onClick={...}
+    >
+        Modificar
+    </button>
+    <button
+        className="contacts-btn"
+        disabled={!contactoSeleccionado}
+        onClick={async () => {
+            if (contactoSeleccionado) {
+                await apiRequest("DELETE", `/v1/client/contacts/${contactoSeleccionado.id}`);
+                setContactos(contactos.filter(c => c.id !== contactoSeleccionado.id));
+                setContactoSeleccionado(null);
+            }
+        }}
+    >
+        Eliminar
+    </button>
+</div>
                 </div>
             </main>
         </div>

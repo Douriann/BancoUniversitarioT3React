@@ -213,4 +213,11 @@ body {
         padding: 8px 10px;
         font-size: 0.95rem;
     }
+    .selected-row {
+    background: #b2f1ec !important;
+    }
+    .contacts-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    }
 }
