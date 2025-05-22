@@ -6,6 +6,7 @@ import "./BancaLineaContacts.css";
 const BancaLineaContacts = () => {
     const [contactos, setContactos] = useState([]);
     const [contactoSeleccionado, setContactoSeleccionado] = useState(null);
+    const [mostrarModal, setMostrarModal] = useState(false);
 
     useEffect(() => {
         const fetchContactos = async () => {
@@ -58,17 +59,42 @@ const BancaLineaContacts = () => {
     <button
         className="contacts-btn"
         disabled={!contactoSeleccionado}
-        onClick={async () => {
-            if (contactoSeleccionado) {
-                await apiRequest("DELETE", `/v1/client/contacts/${contactoSeleccionado.id}`);
-                setContactos(contactos.filter(c => c.id !== contactoSeleccionado.id));
-                setContactoSeleccionado(null);
-            }
-        }}
+        onClick={() => setMostrarModal(true)}
     >
         Eliminar
     </button>
 </div>
+            {mostrarModal && (
+    <div className="modal-overlay">
+        <div className="modal-content">
+            <h3>¿Desea eliminar este contacto?</h3>
+            <p>
+                <strong>{contactoSeleccionado?.alias}</strong> - {contactoSeleccionado?.cuenta}
+            </p>
+            <div className="modal-actions">
+                <button
+                    className="contacts-btn"
+                    style={{ background: "#e53935" }}
+                    onClick={async () => {
+                        await apiRequest("DELETE", `/v1/client/contacts/${contactoSeleccionado.id}`);
+                        setContactos(contactos.filter(c => c.id !== contactoSeleccionado.id));
+                        setContactoSeleccionado(null);
+                        setMostrarModal(false);
+                    }}
+                >
+                    Sí, eliminar
+                </button>
+                <button
+                    className="contacts-btn"
+                    style={{ background: "#4ecdc4" }}
+                    onClick={() => setMostrarModal(false)}
+                >
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+)}
                 </div>
             </main>
         </div>
