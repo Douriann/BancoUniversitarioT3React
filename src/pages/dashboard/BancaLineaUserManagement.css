@@ -110,6 +110,11 @@
     border: none;
 }
 
+.btn-config-img{
+    width: 32px;
+    height: 32px;
+}
+
 .text-box::placeholder{
     color: #085f63;
 }
