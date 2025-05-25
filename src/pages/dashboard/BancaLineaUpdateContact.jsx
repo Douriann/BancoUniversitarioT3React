@@ -4,7 +4,8 @@ import { apiRequest } from "../../api/apirequest";
 import { getJWT } from "../../utils/localStorage";
 import { Toaster, toast } from "react-hot-toast";
 import cancelimg from "../../assets/img/cancel.png";
-import addimg from "../../assets/img/add.png";
+import modifyimg from "../../assets/img/icons8-modify-32.png";
+import buscarimg from "../../assets/img/movement.png"
 import './BancaLineaUpdateContact.css';
 import BancaLineaSidebar from "./BancaLineaSidebar";
 
@@ -61,7 +62,7 @@ function BancaLineaEditContact() {
 
     const handleSearch = () => {
         if (!searchId.trim()) {
-            toast.error("Ingrese un ID para buscar");
+            toast.error("Ingrese el ID para buscar");
             return;
         }
         fetchContact(searchId.trim());
@@ -93,17 +94,17 @@ function BancaLineaEditContact() {
             <BancaLineaSidebar />
             <main className="main-content">
                 <h2>Editar contacto</h2>
-                <div className="update-contact-position-container">
+                <div className="update-position-container">
                     <h2 className="h2-main">Buscar contacto</h2>
                     <div className="search-container">
                         <input
                             type="text"
                             value={searchId}
                             onChange={(e) => setSearchId(e.target.value)}
-                            placeholder="Ingrese ID del contacto"
+                            placeholder="Ingrese el ID"
                             className="input-txtbox search-input"
                         />
-                        <button onClick={handleSearch} className="btn-update btn-search">Buscar</button>
+                        <button type="button" onClick={handleSearch} className="btn-update btn-search"><img src={buscarimg} className="btn-update-img" alt="Buscar" />Buscar</button>
                     </div>
 
                     <h2 className="h2-main">Modificar campos</h2>
@@ -119,7 +120,7 @@ function BancaLineaEditContact() {
                             <img src={cancelimg} className="btn-update-img" alt="Cancelar" />Cancelar
                         </button>
                         <button type="button" onClick={handleSubmit} className="btn-update btn-update">
-                            <img src={addimg} className="btn-update-img" alt="Actualizar" />Actualizar
+                            <img src={modifyimg} className="btn-update-img" alt="Actualizar" />Actualizar
                         </button>
                     </div>
                     <Toaster position="top-right" reverseOrder={false} />
