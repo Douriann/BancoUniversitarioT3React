@@ -45,10 +45,12 @@ function BancaLineaEditContact() {
                 });
                 toast.success("Contacto cargado");
             } else {
+                setForm({ alias: "", account_number: "", description: "" });
                 toast.error("No se pudo obtener el contacto");
             }
         } catch (error) {
-            console.error("Error al obtener contacto:", error);
+            toast.error("Error al obtener contacto:", error);
+            setForm({ alias: "", account_number: "", description: "" });
             toast.error("Error al conectar con el servidor");
         }
     };
