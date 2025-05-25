@@ -8,13 +8,14 @@ import Contact from './Contact';
 import FooterMain from './FooterMain';
 import BancaLineaLogin from './pages/login/BancaLineaLogin';
 import BancaLineaRegister from './pages/register/BancaLineaRegister';
-import BancaLineaDashboard from './pages/dashboard/BancaLineaDashBoard';
+import BancaLineaDashboard from './pages/dashboard/BancaLineaDashboard';
 import BancaLineaHeader from './pages/dashboard/BancaLineaHeader'; 
 import BancaLineaFooter from './pages/dashboard/BancaLineaFooter'; 
 import BancaLineaMovement from './pages/dashboard/BancaLineaMovement';
 import Ping from './ApiPing';
 //import { getJWT } from "./utils/localStorage";
 import PrivateRoute from './utils/PrivateRoute';
+import BancaLineaContacts from './pages/dashboard/BancaLineaContacts';
 
 
 function App() {
@@ -63,6 +64,16 @@ function App() {
          <>
          <BancaLineaHeader />
          <BancaLineaMovement />
+         <BancaLineaFooter />
+         </>} 
+         />}/>
+         <Route
+         path="/bancalinea/contacts" 
+         element={<PrivateRoute 
+         element={
+         <>
+         <BancaLineaHeader />
+         <BancaLineaContacts />
          <BancaLineaFooter />
          </>} 
          />}/>

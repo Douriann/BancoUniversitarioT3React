@@ -10,8 +10,12 @@ const BancaLineaContacts = () => {
 
     useEffect(() => {
         const fetchContactos = async () => {
-            const response = await apiRequest("GET", "/v1/client/contacts");
+            try{
+            const response = await apiRequest("GET", "/v1/client/contact?page=1&page_size=20");
             setContactos(response.data || []);
+            } catch (error) {
+            console.error("Error al obtener contactos:", error);
+        }
         };
         fetchContactos();
     }, []);
@@ -76,10 +80,14 @@ const BancaLineaContacts = () => {
                     className="contacts-btn"
                     style={{ background: "#e53935" }}
                     onClick={async () => {
+                        try{
                         await apiRequest("DELETE", `/v1/client/contacts/${contactoSeleccionado.id}`);
                         setContactos(contactos.filter(c => c.id !== contactoSeleccionado.id));
                         setContactoSeleccionado(null);
                         setMostrarModal(false);
+                        } catch(error) {
+                            console.error("Error al eliminar contacto:", error);
+                        }
                     }}
                 >
                     Sí, eliminar
