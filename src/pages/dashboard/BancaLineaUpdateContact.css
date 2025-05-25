@@ -1,0 +1,12 @@
+.update-contact-position-container{
+    color: white;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    background-color: #085f63;
+    border-radius: 20px;
+    align-self: center;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
