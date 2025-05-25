@@ -1,14 +1,29 @@
-  .register-container {
-    height: 100vh;
-    overflow-y: auto;
-    width: 100%;
-    position: relative;
-    background-image: url("../../assets/img/loginbackground.jpg");
+/* register.css */
+
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("../../assets/fonts/Montserrat\ Alternates\ Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family:  "Montserrat Alternates", sans-serif;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.61)), url('../../assets/img/loginbackground.jpg');
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    height: 100%;
+    width: 100%;
+    container-type: inline-size;
+    container-name: body;
+  }
+  
+  .register-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
   }
   
   .register-header {
@@ -33,18 +48,20 @@
   }
   
   .institutional-btn:hover {
-    background-color: #004d40;
+    background-color: #085f63;
   }
   
   .register-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #085f63;
     padding: 40px 30px;
     border-radius: 10px;
-    width: 50%;
+    width: 350px;
     text-align: center;
     color: #ffffff;
-    align-self: center;
-    margin-bottom: 32px;
   }
   .register-title{
     display: flex;
@@ -66,11 +83,7 @@
   
   .register-box form {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: column;
   }
   
   .register-box input {
@@ -83,7 +96,7 @@
   
   .register-box button {
     padding: 12px;
-    background-color: #468c84;
+    background-color: #49beb7;
     border: none;
     border-radius: 4px;
     color: #ffffff;
@@ -93,7 +106,7 @@
   }
   
   .register-box button:hover {
-    background-color: #357a73;
+    background-color: #49beb7;
   }
   
   .register-link {
@@ -103,60 +116,8 @@
   }
   
   .register-link a {
-    color: #9ae3e3;
+    color: #49beb7;
     text-decoration: none;
     font-weight: bold;
   }
-
-  .form-txtbox{
-    width: 40%;
-  }
   
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 220px;
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    margin-bottom: 4px;
-    font-weight: 500;
-    color: #fff;
-    font-size: 14px;
-}
-
-.form-group input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 8px 10px;
-    font-size: 13px;
-    border-radius: 4px;
-    border: none;
-    margin-bottom: 0;
-}
-
-.register-box form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px 24px;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-@media (max-width: 600px) {
-  .register-box {
-    width: 85%;
-    min-width: 0;
-    padding: 18px 6px 16px 6px;
-    box-sizing: border-box;
-  }
-  .form-group {
-    width: 80%;
-    min-width: 0;
-  }
-  .form-txtbox {
-    width: 50%;
-  }
-}

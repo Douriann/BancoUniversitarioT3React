@@ -1,114 +1,181 @@
-// src/components/BancolineaRegister.jsx
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import { apiRequest } from '../../api/apirequest';
 import './BancaLineaRegister.css';
-import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/img/logo.png';
+import registerico from '../../assets/img/favicon.png';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const BancaLineaRegister = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    name: '',
-    email: ''
-  });
-
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const [form, setForm] = useState({
+    first_name: '',
+    last_name: '',
+    document_number: '',
+    birth_date: '',
+    phone_number: '',
+    email: '',
+    password: '',
+    confirm_password: ''
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleChange = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value
+    });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
-    
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Validaciones
+    if (Object.values(form).some(field => !field)) {
+      alert('Por favor, completa todos los campos.');
+      return;
+    }
+
+    if (form.password !== form.confirm_password) {
+      alert('Las contraseñas no coinciden.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      alert('Correo electrónico no válido.');
+      return;
+    }
+
+    const phoneRegex = /^\d{10,15}$/;
+    if (!phoneRegex.test(form.phone_number)) {
+      alert('Número de teléfono no válido. Debe tener entre 10 y 15 dígitos.');
+      return;
+    }
+
+    const idRegex = /^\d{6,12}$/;
+    if (!idRegex.test(form.document_number)) {
+      alert('Cédula no válida. Debe tener entre 6 y 12 dígitos.');
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+    if (!passwordRegex.test(form.password)) {
+      alert('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.');
+      return;
+    }
+
     try {
-      const response = await axios.post(
-        'https://bank-service-back-dev-jqkt.3.us-1.fl0.io/api/v1/auth/register', 
-        formData
-      );
-      
-      if (response.data) {
-        // Redirige al login después de registro exitoso
-        navigate('/login');
+      const formattedDate = new Date(form.birth_date).toISOString();
+      const formData = { ...form, birth_date: formattedDate };
+
+      const response = await apiRequest('POST', '/v1/public/client/user/register', formData);
+      console.log('Respuesta del servidor:', response);
+
+      if (response.errors?.length === 0) {
+        alert(response.message || 'Registro exitoso');
+        navigate('/BancaLinea/login');
+      } else {
+        alert(response.message || 'Error en el registro');
       }
-    } catch (err) {
-      setError(err.response?.data?.message || 'Error en el registro. Por favor intenta nuevamente.');
-    } finally {
-      setIsLoading(false);
+    } catch (error) {
+      console.error('Error al conectar con el servidor:', error);
+      alert('Error al conectar con el servidor');
     }
   };
 
   return (
     <div className="register-container">
-      <h2>Registro de Nuevo Usuario</h2>
-      {error && <div className="error-message">{error}</div>}
-      
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Nombre Completo:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            placeholder="Ej: Juan Pérez"
-          />
-        </div>
+      <header className="register-header">
+        <img src={logo} alt="Banco Universitario" className="logo" />
+        <Link to="/" className="institutional-btn">Web Institucional</Link>
+      </header>
 
-        <div className="form-group">
-          <label>Correo Electrónico:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            placeholder="Ej: usuario@correo.com"
-          />
+      <div className="register-box">
+        <div className="register-title">
+          <img src={registerico} alt="Register Icono" className="register-icon" />
+          <h2>REGISTRO NUEVO USUARIO</h2>
         </div>
+        <form onSubmit={handleSubmit}>
+          {[
+            { label: 'Nombre', name: 'first_name', placeholder: 'EJ: CARLOS ANDRÉS' },
+            { label: 'Apellido', name: 'last_name', placeholder: 'EJ: GONZÁLEZ PÉREZ' },
+            { label: 'Cédula', name: 'document_number', placeholder: 'EJ: 12345678' },
+            { label: 'Fecha de Nacimiento', name: 'birth_date', type: 'date' },
+            { label: 'Número de Teléfono', name: 'phone_number', placeholder: 'EJ: 04161234567' },
+            { label: 'Correo Electrónico', name: 'email', type: 'email', placeholder: 'EJ: micorreo@gmail.com' }
+          ].map(({ label, name, type = 'text', placeholder }) => (
+            <div className="form-group" key={name}>
+              <label htmlFor={name}>{label} *</label>
+              <input
+                type={type}
+                id={name}
+                name={name}
+                placeholder={placeholder}
+                value={form[name]}
+                onChange={handleChange}
+                required
+                className="form-txtbox"
+              />
+            </div>
+          ))}
 
-        <div className="form-group">
-          <label>Nombre de Usuario:</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-            placeholder="Ej: jperez2023"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="password">Contraseña *</label>
+            <div style={{ position: 'relative' }}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                placeholder="Ingrese aquí"
+                value={form.password}
+                onChange={handleChange}
+                required
+                className="form-txtbox"
+                style={{ paddingRight: '35px' }}
+              />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: 'absolute',
+                  right: '10px',
+                  top: '56%',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                  color: '#333'
+                }}
+                tabIndex={0}
+                aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+          </div>
 
-        <div className="form-group">
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            minLength="6"
-            placeholder="Mínimo 6 caracteres"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="confirm_password">Confirme la Contraseña *</label>
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              placeholder="Confirme aquí"
+              value={form.confirm_password}
+              onChange={handleChange}
+              required
+              className="form-txtbox"
+            />
+          </div>
 
-        <button 
-          type="submit" 
-          className="submit-btn"
-          disabled={isLoading}
-        >
-          {isLoading ? 'Registrando...' : 'Crear Cuenta'}
-        </button>
-      </form>
+          <div className="form-group">
+            <button type="submit" style={{ width: '100%' }}>Registrarse</button>
+          </div>
+        </form>
+        <p className="register-link">
+          ¿Ya tienes cuenta? <Link to="/BancaLinea/login">Inicia sesión aquí</Link>
+        </p>
+      </div>
     </div>
   );
 };
