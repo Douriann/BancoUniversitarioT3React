@@ -82,6 +82,7 @@ function BancaLineaTransfer() {
             const response = await apiRequest("POST", "/v1/client/movement", formData);
             if (response.errors.length === 0) {
                 toast.success(response.message);
+                navigate("/bancalinea/success", { state: form });
             }
             else
             {
