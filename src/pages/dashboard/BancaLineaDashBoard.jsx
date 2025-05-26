@@ -60,7 +60,7 @@ return (
                 </div>
                     <div class="global-position-balancecontainer">
                         <h2 class="h2-main">Saldo Total</h2>
-                        <p class="data-info">{accountState.accoutBalance} Bs.</p>
+                        <p class="data-info">{accountState.accoutBalance.toLocaleString()} Bs.</p>
                     </div>
                 </div>
             </div>
