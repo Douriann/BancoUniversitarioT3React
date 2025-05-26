@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.userManagement-main-content{
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+    font-size: 1.2rem;
+    width: 70%;
+    margin: 20px;
+}
+
+.userManagement-position-container{
+    color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    background-color: #085f63;
+    border-radius: 20px;
+    align-self: center;
+    align-items:baseline;
+    display: flex;
+    gap: 70px;
+    flex-direction: row;
+}
+
+.userManagement-position-container form{
+    display: flex;
+    flex-wrap: wrap;
+    align-self: baseline;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+}
+
+.userManagement-position-container input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 84px;
+}
+
+.modify{
+    background-color: #49beb7;
+    color: #ffffff;
+}
+
+.modify:hover{
+    background-color: #7fdcd6;    
+}
+
+.cancel{
+    background-color: #9a9999;
+    color: #ffffff;  
+}
+
+.cancel:hover{
+    background-color: #c4c3c3;
+}
+
+.error-box {
+    width: 40%;
+    height: auto;
+    background-color:#d9d9d9;
+    border-radius: 20px;
+}
+
+.error-message {
+    text-align: justify;
+    color: #085f63;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    min-height: 1.2em; /* Reserva espacio */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.btn-config{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 12rem;
+    height: 50px;
+    border-radius: 5px;
+    /*background-color: #d9d9d9;
+    color: black;*/
+    font-size: 1rem;
+    text-align: center;
+    font-family: "Montserrat Alternates";
+    font-weight: bold;
+    border: none;
+}
+
+.btn-config-img{
+    width: 32px;
+    height: 32px;
+}
+
+.text-box::placeholder{
+    color: #085f63;
+}

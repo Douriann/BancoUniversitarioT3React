@@ -37,7 +37,7 @@ const handleCopyAccount = () => {
             findUserData();
         }, []);
 
-  return (
+return (
     <div class="container-mainclass">
         <BancaLineaSidebar />
         <main class="main-content">
@@ -60,13 +60,13 @@ const handleCopyAccount = () => {
                 </div>
                     <div class="global-position-balancecontainer">
                         <h2 class="h2-main">Saldo Total</h2>
-                        <p>{accountState.accoutBalance} Bs.</p>
+                        <p class="data-info">{accountState.accoutBalance.toLocaleString()} Bs.</p>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-  );
+);
 }
 
 export default BancaLineaDashboard;
