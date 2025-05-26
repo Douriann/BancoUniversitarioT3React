@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { apiRequest } from "../../api/apirequest";
+import addimg from '../../assets/img/add.png';
+import modifyimg from '../../assets/img/modify.png';
+import removeimg from '../../assets/img/remove.png';
+import {useNavigate} from 'react-router-dom';
 import BancaLineaSidebar from "./BancaLineaSidebar";
 import "./BancaLineaContacts.css";
 
 const BancaLineaContacts = () => {
+    const navigate = useNavigate();
     const [contactos, setContactos] = useState([]);
     const [contactoSeleccionado, setContactoSeleccionado] = useState(null);
     const [mostrarModal, setMostrarModal] = useState(false);
@@ -43,21 +48,21 @@ const BancaLineaContacts = () => {
                                 className={contactoSeleccionado && contactoSeleccionado.id === contacto.id ? "selected-row" : ""}
                                 style={{ cursor: "pointer" }}
                                 >
-                                <td>{contacto.cuenta}</td>
+                                <td>{contacto.account_number}</td>
                                 <td>{contacto.alias}</td>
-                                <td>{contacto.descripcion}</td>
+                                <td>{contacto.description}</td>
         </tr>
     ))}
 </tbody>
                         </table>
                     </div>
                     <div className="contacts-actions">
-    <button className="contacts-btn">Agregar</button>
+    <button onClick={() => navigate("/bancalinea/addcontact")} className="contacts-btn"><img src={addimg} class="btn-transf-img"></img>Agregar</button>
     <button
         className="contacts-btn"
-        disabled={!contactoSeleccionado}
-        // onClick={...}
+        onClick={() => navigate("/bancalinea/updatecontact")}
     >
+        <img src={modifyimg} class="btn-transf-img"></img>
         Modificar
     </button>
     <button
@@ -65,6 +70,7 @@ const BancaLineaContacts = () => {
         disabled={!contactoSeleccionado}
         onClick={() => setMostrarModal(true)}
     >
+        <img src={removeimg} class="btn-transf-img"></img>
         Eliminar
     </button>
 </div>

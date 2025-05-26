@@ -4,7 +4,7 @@ import { apiRequest } from "../../api/apirequest";
 import { getJWT } from "../../utils/localStorage";
 import { Toaster, toast } from "react-hot-toast";
 import cancelimg from "../../assets/img/cancel.png";
-import modifyimg from "../../assets/img/icons8-modify-32.png";
+import modifyimg from "../../assets/img/modify.png";
 import buscarimg from "../../assets/img/movement.png"
 import './BancaLineaUpdateContact.css';
 import BancaLineaSidebar from "./BancaLineaSidebar";

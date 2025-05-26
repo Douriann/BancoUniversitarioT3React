@@ -82,23 +82,26 @@
 }
 
 .contacts-btn {
+    width: 12rem;
     padding: 14px 38px;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    background: #4ecdc4;
+    background: #49beb7;
     color: #fff;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     transition: background 0.2s;
 }
 
 .contacts-btn:hover {
-    background: #38bdb2;
+    background: #7fdcd6;
 }
 
 /* Responsive */
