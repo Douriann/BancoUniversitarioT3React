@@ -16,7 +16,7 @@ const BancaLineaContacts = () => {
     useEffect(() => {
         const fetchContactos = async () => {
             try{
-            const response = await apiRequest("GET", "/v1/client/contact?page=1&page_size=20");
+            const response = await apiRequest("GET", "/v1/client/contact");
             setContactos(response.data || []);
             } catch (error) {
             console.error("Error al obtener contactos:", error);

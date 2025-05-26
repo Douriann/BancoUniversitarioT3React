@@ -22,7 +22,7 @@ function BancaLineaTransfer() {
     useEffect(() => {
         const findContacts = async () => {
             try{
-                const response = await apiRequest("GET", "/v1/client/contact?page_size=20");
+                const response = await apiRequest("GET", "/v1/client/contact");
                 console.log("Respuesta del servidor:", response);
                 if (response.errors.length == 0) {
                     setContacts(response.data || []);
