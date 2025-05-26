@@ -1,60 +1,8 @@
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #eaeaea;
-}
 
 .container-mainclass {
     display: flex;
     min-height: 100vh;
     background: #eaeaea;
-}
-
-/* Sidebar */
-.sidebar {
-    background: #085f63;
-    color: #fff;
-    width: 210px;
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 18px;
-    padding-bottom: 18px;
-}
-
-.sidebar-logo {
-    width: 120px;
-    margin-bottom: 24px;
-}
-
-.sidebar-user {
-    font-weight: bold;
-    margin-bottom: 24px;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-}
-
-.sidebar-nav {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.sidebar-link {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 4px;
-    transition: background 0.2s;
-    font-size: 1rem;
-    display: block;
-}
-
-.sidebar-link.active,
-.sidebar-link:hover {
-    background: #468c84;
 }
 
 /* Main Content */
