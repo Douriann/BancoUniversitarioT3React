@@ -1,0 +1,104 @@
+.update-position-container{
+    color: white;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    background-color: #085f63;
+    border-radius: 20px;
+    align-self: center;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.update-input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.input-txtbox{
+    width: 18rem;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    color: black;
+    font-size: 1.2rem;
+    padding-left: 0.8rem;
+    border: none;
+}
+
+.input-txtbox::placeholder{
+    color: #085f63;
+
+}
+
+.update-inputs-container-2{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.input-description{
+    width: 41rem;
+}
+
+input{
+    font-family: "Montserrat Alternates";
+}
+
+.update-button-container{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-self: flex-end;
+}
+
+.btn-update{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 12rem;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    color: black;
+    font-size: 1rem;
+    text-align: center;
+    font-family: "Montserrat Alternates";
+    font-weight: bold;
+    border: none;
+}
+
+.btn-update{
+    background-color: #49beb7;
+    color: white;
+}
+
+.btn-update:hover{
+    background-color:#7fdcd6;
+}
+
+.btn-cancel{
+    background-color: #9a9999;
+    color: white;
+}
+
+.btn-cancel:hover{
+    background-color: #c4c3c3;
+}
+
+.btn-update-img{
+    width: 32px;
+    height: 32px;
+}

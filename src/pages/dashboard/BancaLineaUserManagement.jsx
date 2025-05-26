@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiRequest } from "../../api/apirequest";
 import { getJWT } from "../../utils/localStorage";
+import cancelimg from '../../assets/img/cancel.png';
+import configimg from '../../assets/img/config.png';
 import BancaLineaSidebar from "./BancaLineaSidebar";
 import "./BancaLineaUserManagement.css";
 
@@ -82,32 +84,14 @@ const UserManagement = () => {
         <h2>Gestión de Usuario</h2>
         <div className="userManagement-position-container">
           <form onSubmit={handleSubmit}>
-            <label>Contraseña actual</label>
-            <input
-              type="password"
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.target.value)}
-            />
-
-            <label>Contraseña nueva</label>
-            <input
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
-
-            <label>Repita la Contraseña nueva</label>
-            <input
-              type="password"
-              value={repeatNewPassword}
-              onChange={(e) => setRepeatNewPassword(e.target.value)}
-            />
-
+            <input type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} placeholder="Contraseña actual" className="text-box"/>
+            <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Nueva contraseña" className="text-box"/>
+            <input type="password" value={repeatNewPassword} onChange={(e) => setRepeatNewPassword(e.target.value)} placeholder="Confirmar nueva contraseña" className="text-box"/>
             <div className="buttons">
-              <button type="button" className="cancel" onClick={handleCancel}>
+              <button type="button" className="btn-config cancel" onClick={handleCancel}><img src={cancelimg} className="btn-config-img"></img>
                 Cancelar
               </button>
-              <button type="submit" className="modify">
+              <button type="submit" className="btn-config modify"><img src={configimg} className="btn-config-img"></img>
                 Modificar
               </button>
             </div>
