@@ -194,4 +194,10 @@
     gap: 18px;
     margin-top: 24px;
 }
+.contacts-table input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4ecdc4;
+    cursor: pointer;
+}
 }

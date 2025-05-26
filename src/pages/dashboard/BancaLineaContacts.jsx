@@ -32,30 +32,37 @@ const BancaLineaContacts = () => {
                 <h2>Contactos</h2>
                 <div className="contacts-position-container">
                     <div className="contacts-table-container">
-                        <table className="contacts-table">
-                            <thead>
-                                <tr>
-                                    <th>Número de Cuenta</th>
-                                    <th>Alias</th>
-                                    <th>Descripción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {contactos.map((contacto, idx) => (
-                                <tr
-                                 key={contacto.id || idx}
-                                 onClick={() => setContactoSeleccionado(contacto)}
-                                className={contactoSeleccionado && contactoSeleccionado.id === contacto.id ? "selected-row" : ""}
-                                style={{ cursor: "pointer" }}
-                                >
-                                <td>{contacto.account_number}</td>
-                                <td>{contacto.alias}</td>
-                                <td>{contacto.description}</td>
-        </tr>
-    ))}
-</tbody>
-                        </table>
-                    </div>
+    <table className="contacts-table">
+        <thead>
+            <tr>
+                <th>Número de Cuenta</th>
+                <th>Alias</th>
+                <th>Descripción</th>
+                <th>Seleccionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {contactos.map((contacto, idx) => (
+                <tr
+                    key={contacto.id || idx}
+                    className={contactoSeleccionado && contactoSeleccionado.id === contacto.id ? "selected-row" : ""}
+                >
+                    <td>{contacto.account_number}</td>
+                    <td>{contacto.alias}</td>
+                    <td>{contacto.description}</td>
+                    <td style={{ textAlign: "center" }}>
+                        <input
+                            type="radio"
+                            name="contactoSeleccionado"
+                            checked={contactoSeleccionado?.id === contacto.id}
+                            onChange={() => setContactoSeleccionado(contacto)}
+                        />
+                    </td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+</div>
                     <div className="contacts-actions">
     <button onClick={() => navigate("/bancalinea/addcontact")} className="contacts-btn"><img src={addimg} class="btn-transf-img"></img>Agregar</button>
     <button
