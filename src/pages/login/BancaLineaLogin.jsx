@@ -7,6 +7,7 @@ import logo from '../../assets/img/logo.png';
 import loginico from '../../assets/img/favicon.png';
 import { Link , useNavigate} from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Toaster , toast } from 'react-hot-toast'
 
 function BancaLineaLogin() {
     const navigate = useNavigate();
@@ -43,14 +44,13 @@ const handleSubmit = async (event) => {
         try {
             // guardando el JWT en el localStorage
             setJWT(response.data.jwt);
-            alert("Inicio de sesión exitoso");
             navigate("/bancalinea/dashboard");
         } catch {
-            alert(response.message || "Error al iniciar sesión");
+            toast(response.message || "Error al iniciar sesión");
         }
     } catch (error) {
         console.error("Error al conectar con el servidor:", error);
-        alert("Error al conectar con el servidor");
+        toast("Error al conectar con el servidor");
     }
 };
 return (
@@ -110,6 +110,7 @@ return (
             Si eres nuevo cliente <Link to="/BancaLinea/Register">regístrate aquí</Link>
             </p>
         </div>
+    <Toaster position="top-right" reverseOrder={false} />
     </div>
 );
 }

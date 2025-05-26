@@ -5,6 +5,7 @@ import logoutimg from '../../assets/img/logout.png';
 import { getJWT , removeJWT} from "../../utils/localStorage";
 import { Link , useNavigate} from 'react-router-dom';
 import { apiRequest } from "../../api/apirequest";
+import { toast } from 'react-hot-toast';
 
 function BancaLineaHeader() {
    const navigate = useNavigate();
@@ -19,7 +20,7 @@ function BancaLineaHeader() {
             }
             catch (error) {
                 console.error("Error al conectar con el servidor:", error);
-                alert("Error al conectar con el servidor");
+                toast("Error al conectar con el servidor");
                 navigate("/bancalinea/login");
             }
         }
@@ -28,7 +29,7 @@ function BancaLineaHeader() {
 
     const handleLogout = () => {
         removeJWT();
-        alert("Sesión cerrada");
+        toast.success("Sesión cerrada");
         navigate("/bancalinea/login");
     }
   return (

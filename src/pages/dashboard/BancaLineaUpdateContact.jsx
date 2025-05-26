@@ -118,7 +118,7 @@ function BancaLineaEditContact() {
                         <input type="text" name="description" value={form.description} onChange={handleChange} placeholder="Descripción" className="input-txtbox input-description" />
                     </div>
                     <div className="update-button-container">
-                        <button type="button" onClick={() => navigate("/bancalinea/dashboard")} className="btn-update btn-cancel">
+                        <button type="button" onClick={() => navigate("/bancalinea/contacts")} className="btn-update btn-cancel">
                             <img src={cancelimg} className="btn-update-img" alt="Cancelar" />Cancelar
                         </button>
                         <button type="button" onClick={handleSubmit} className="btn-update btn-update">

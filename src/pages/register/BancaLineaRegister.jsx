@@ -5,6 +5,7 @@ import './BancaLineaRegister.css';
 import logo from '../../assets/img/logo.png';
 import registerico from '../../assets/img/favicon.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Toaster , toast } from 'react-hot-toast';
 
 const BancaLineaRegister = () => {
   const navigate = useNavigate();
@@ -34,36 +35,36 @@ const BancaLineaRegister = () => {
 
     // Validaciones
     if (Object.values(form).some(field => !field)) {
-      alert('Por favor, completa todos los campos.');
+      toast('Por favor, completa todos los campos.');
       return;
     }
 
     if (form.password !== form.confirm_password) {
-      alert('Las contraseñas no coinciden.');
+      toast('Las contraseñas no coinciden.');
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(form.email)) {
-      alert('Correo electrónico no válido.');
+      toast('Correo electrónico no válido.');
       return;
     }
 
     const phoneRegex = /^\d{10,15}$/;
     if (!phoneRegex.test(form.phone_number)) {
-      alert('Número de teléfono no válido. Debe tener entre 10 y 15 dígitos.');
+      toast('Número de teléfono no válido. Debe tener entre 10 y 15 dígitos.');
       return;
     }
 
     const idRegex = /^\d{6,12}$/;
     if (!idRegex.test(form.document_number)) {
-      alert('Cédula no válida. Debe tener entre 6 y 12 dígitos.');
+      toast('Cédula no válida. Debe tener entre 6 y 12 dígitos.');
       return;
     }
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
     if (!passwordRegex.test(form.password)) {
-      alert('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.');
+      toast('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.');
       return;
     }
 
@@ -75,14 +76,14 @@ const BancaLineaRegister = () => {
       console.log('Respuesta del servidor:', response);
 
       if (response.errors?.length === 0) {
-        alert(response.message || 'Registro exitoso');
+        toast(response.message || 'Registro exitoso');
         navigate('/BancaLinea/login');
       } else {
-        alert(response.message || 'Error en el registro');
+        toast(response.message || 'Error en el registro');
       }
     } catch (error) {
       console.error('Error al conectar con el servidor:', error);
-      alert('Error al conectar con el servidor');
+      toast.error('Error al conectar con el servidor');
     }
   };
 
@@ -176,6 +177,7 @@ const BancaLineaRegister = () => {
           ¿Ya tienes cuenta? <Link to="/BancaLinea/login">Inicia sesión aquí</Link>
         </p>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

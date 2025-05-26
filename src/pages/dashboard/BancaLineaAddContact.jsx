@@ -65,7 +65,7 @@ function BancaLineaTransfer() {
                         <input type="text" name="description" value={form.description} onChange={handleChange} id="descriptionUsr" placeholder="Descripción" class="input-txtbox input-description"/>
                     </div>
                     <div class="transfer-button-container">
-                        <button type="button" onClick={() => navigate("/bancalinea/dashboard")} class="btn-transf btn-cancel"><img src={cancelimg} class="btn-transf-img"></img>Cancelar</button>
+                        <button type="button" onClick={() => navigate("/bancalinea/contacts")} class="btn-transf btn-cancel"><img src={cancelimg} class="btn-transf-img"></img>Cancelar</button>
                         <button type="button" onClick={handleSubmit} class="btn-transf btn-transfer"><img src={addimg} class="btn-transf-img"></img>Agregar</button>
                     </div>
                     <Toaster position="top-right" reverseOrder={false} />
