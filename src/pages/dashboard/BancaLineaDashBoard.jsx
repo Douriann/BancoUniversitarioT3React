@@ -47,7 +47,7 @@ return (
                 <div class="global-position-box">
                     <div class="global-position-accoutnumb">
                     <h2 class="h2-main">Número de cuenta</h2>
-                    <p style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <p style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "2rem" }}>
                     {accountState.accountNumber}
                     <span
                         style={{ cursor: "pointer" }}
