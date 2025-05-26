@@ -1,10 +1,4 @@
 
-.container-mainclass {
-    display: flex;
-    min-height: 100vh;
-    background: #eaeaea;
-}
-
 /* Main Content */
 .contacts-main-content {
     flex: 1;
