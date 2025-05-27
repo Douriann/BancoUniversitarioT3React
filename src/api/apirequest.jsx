@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getJWT } from "../utils/localStorage"
+import { getJWT } from "../utils/localstorage"
 
 // URL base para la API con su respectivo tiempo de espera
 export const apiUrl = '/api';
