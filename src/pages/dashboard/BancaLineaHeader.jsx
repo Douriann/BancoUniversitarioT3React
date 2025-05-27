@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './BancaLineaHeader.css';
 import logo from '../../assets/img/logo.png';
 import logoutimg from '../../assets/img/logout.png';
-import { getJWT , removeJWT} from "../../utils/localStorage";
+import { getJWT , removeJWT} from "../../utils/localstorage";
 import { Link , useNavigate} from 'react-router-dom';
 import { apiRequest } from "../../api/apirequest";
 import { toast } from 'react-hot-toast';

@@ -1,4 +1,4 @@
-import { getJWT } from "./localStorage";
+import { getJWT } from "./localstorage";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ element }) => {

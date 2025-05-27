@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { apiRequest } from "../../api/apirequest";
-import { getJWT } from "../../utils/localStorage";
+import { getJWT } from "../../utils/localstorage";
 import { Toaster, toast } from "react-hot-toast";
 import cancelimg from "../../assets/img/cancel.png";
 import modifyimg from "../../assets/img/modify.png";

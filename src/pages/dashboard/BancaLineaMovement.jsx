@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { apiRequest } from "../../api/apirequest";
-import { getJWT } from "../../utils/localStorage";
+import { getJWT } from "../../utils/localstorage";
 import { Link , useNavigate} from 'react-router-dom';
 import BancaLineaSidebar from "./BancaLineaSidebar";
 import userimg from '../../assets/img/user.png';

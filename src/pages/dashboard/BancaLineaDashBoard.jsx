@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { apiRequest } from "../../api/apirequest";
-import { getJWT } from "../../utils/localStorage";
+import { getJWT } from "../../utils/localstorage";
 import './BancaLineaDashboard.css';
 import BancaLineaSidebar from "./BancaLineaSidebar";
 import { FaRegCopy } from "react-icons/fa";

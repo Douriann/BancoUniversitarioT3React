@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiRequest } from "../../api/apirequest";
-import { getJWT } from "../../utils/localStorage";
+import { getJWT } from "../../utils/localstorage";
 import cancelimg from '../../assets/img/cancel.png';
 import configimg from '../../assets/img/config.png';
 import BancaLineaSidebar from "./BancaLineaSidebar";
