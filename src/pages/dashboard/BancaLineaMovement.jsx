@@ -75,8 +75,8 @@ const BancaLineaMovement = () => {
                                 movimientos.map((movimiento, index) => (
                                     <tr key={index}>
                                         <td>{movimiento.description}</td>
-                                        <td>{movimiento.amount.toLocaleString()}</td>
-                                        <td style={{color: movimiento.multiplier == -1  ? "red" : "green"}}>{movimiento.balance.toLocaleString()}</td>
+                                        <td style={{color: movimiento.multiplier == -1  ? "red" : "green"}}>{movimiento.amount.toLocaleString()}</td>
+                                        <td>{movimiento.balance.toLocaleString()}</td>
                                         <td>{movimiento.multiplier == 1 ? "Crédito" : "Débito"}</td>
                                     </tr>
                                 ))
